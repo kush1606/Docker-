@@ -1,0 +1,200 @@
+Pull nginx image from dockerhub.
+kush@kush-Lenovo-Z580:~$ sudo docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+
+2a72cbf407d6: Already exists 
+e19f9e910af9: Pulling fs layer 
+2f3d26a87e79: Pulling fs layer 
+Get https://registry-1.docker.io/v2/library/nginx/blobs/sha256:c5c4e8fa2cf7d87545ed017b60a4b71e047e26c4ebc71eb1709d9e5289f9176f: net/http: TLS handshake timeout
+
+kush@kush-Lenovo-Z580:~$ sudo docker images
+[sudo] password for kush: 
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nginx               latest              c5c4e8fa2cf7        25 hours ago        108.9 MB
+ubuntu              16.04               f975c5035748        4 weeks ago         112.4 MB
+ubuntu              latest              f975c5035748        4 weeks ago         112.4 MB
+alpine              latest              3fd9065eaf02        12 weeks ago        4.148 MB
+kush07/repo1        v1                  3fd9065eaf02        12 weeks ago        4.148 MB
+hello-world         latest              f2a91732366c        4 months ago        1.848 kB
+
+Run a container from nginx image and map container port 80 to system port 80.Display all mapped ports on nginx image.
+kush@kush-Lenovo-Z580:~$ sudo docker run -d -it -p 80:80 nginx
+e85a9fceb89f3438f675ff6877a335618c1938b0ee245743fc175680f185fc02
+docker: Error response from daemon: failed to create endpoint gigantic_yalow on network bridge: Error starting userland proxy: listen tcp 0.0.0.0:80: bind: address already in use.
+kush@kush-Lenovo-Z580:~$ sudo docker run -d -it -p 70:80 nginx
+fc282c23958f97751f86f84750224865bc8658a65d22ff06c6f23513c1418203
+kush@kush-Lenovo-Z580:~$ sudo docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS                      PORTS                NAMES
+fc282c23958f        nginx               "nginx -g 'daemon off"   About a minute ago   Up 57 seconds               0.0.0.0:70->80/tcp   drunk_allen
+e85a9fceb89f        nginx               "nginx -g 'daemon off"   About a minute ago   Created                                          gigantic_yalow
+e99a04370734        nginx               "nginx -g 'daemon off"   11 hours ago         Exited (0) 11 hours ago                          docker-nginx1
+6a9f5c44a10f        nginx               "nginx -g 'daemon off"   11 hours ago         Created                                          docker-nginx
+ef34e882994f        hello-world         "/hello"                 24 hours ago         Exited (0) 24 hours ago                          hopeful_hopper
+a572f914328e        774c0d498e38        "/bin/sh -c 'apt-get "   35 hours ago         Exited (1) 35 hours ago                          tender_wescoff
+caef8aa6d7c9        alpine              "/bin/sh"                36 hours ago         Exited (137) 35 hours ago                        reverent_hypatia
+da5a91fbc41b        ubuntu              "/bin/bash"              3 days ago           Exited (0) 3 days ago                            kush
+19a44ae8db2f        ubuntu              "/bin/bash"              3 days ago           Exited (0) 3 days ago                            modest_bartik
+Run a docker container named "containexpose" from nginx image and expose port 80 of container to outer world without mapping it to any of system port.
+kush@kush-Lenovo-Z580:~$ sudo docker run -d -it --expose=80 --name conatinerexpose c5c4e8fa2cf7
+dec93e41ee4c086561eb11f6213723474fa9c29c464eba3638beb7b7c408ca38
+kush@kush-Lenovo-Z580:~$ sudo docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS                NAMES
+dec93e41ee4c        c5c4e8fa2cf7        "nginx -g 'daemon off"   17 seconds ago      Up 15 seconds               80/tcp               conatinerexpose
+fc282c23958f        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes                0.0.0.0:70->80/tcp   drunk_allen
+e85a9fceb89f        nginx               "nginx -g 'daemon off"   6 minutes ago       Created                                          gigantic_yalow
+e99a04370734        nginx               "nginx -g 'daemon off"   12 hours ago        Exited (0) 11 hours ago                          docker-nginx1
+6a9f5c44a10f        nginx               "nginx -g 'daemon off"   12 hours ago        Created                                          docker-nginx
+ef34e882994f        hello-world         "/hello"                 24 hours ago        Exited (0) 24 hours ago                          hopeful_hopper
+a572f914328e        774c0d498e38        "/bin/sh -c 'apt-get "   35 hours ago        Exited (1) 35 hours ago                          tender_wescoff
+caef8aa6d7c9        alpine              "/bin/sh"                36 hours ago        Exited (137) 35 hours ago                        reverent_hypatia
+da5a91fbc41b        ubuntu              "/bin/bash"              3 days ago          Exited (0) 3 days ago                            kush
+19a44ae8db2f        ubuntu              "/bin/bash"              3 days ago          Exited (0) 3 days ago                            modest_bartik
+
+Create docker volume named "dbvol”
+
+kush@kush-Lenovo-Z580:~$ sudo docker volume create dbvol
+docker: "volume create" requires 0 arguments.
+See 'docker volume create --help'.
+
+Usage:	docker volume create [OPTIONS]
+
+Create a volume
+kush@kush-Lenovo-Z580:~$ docker volume create --help
+WARNING: Error loading config file:/home/kush/.docker/config.json - stat /home/kush/.docker/config.json: permission denied
+
+Usage:	docker volume create [OPTIONS]
+
+Create a volume
+
+  -d, --driver=local    Specify volume driver name
+  --help                Print usage
+  --name                Specify volume name
+  -o, --opt=map[]       Set driver specific options
+kush@kush-Lenovo-Z580:~$ sudo docker volume create --help
+
+Usage:	docker volume create [OPTIONS]
+
+Create a volume
+
+  -d, --driver=local    Specify volume driver name
+  --help                Print usage
+  --name                Specify volume name
+  -o, --opt=map[]       Set driver specific options
+kush@kush-Lenovo-Z580:~$ sudo docker volume create dbvol
+docker: "volume create" requires 0 arguments.
+See 'docker volume create --help'.
+
+Usage:	docker volume create [OPTIONS]
+
+Create a volume
+kush@kush-Lenovo-Z580:~$ sudo docker volume create --name dbvol
+dbvol
+
+
+Run docker container from wordpress image and mount "dbvol" to /var/lib/mysql
+
+kush@kush-Lenovo-Z580:~$ sudo docker pull wordpress
+Using default tag: latest
+latest: Pulling from library/wordpress
+2a72cbf407d6: Already exists 
+273cd543cb15: Already exists 
+ec5ac8875de7: Pull complete 
+9106e19b56c1: Pull complete 
+ee2f70ac7c7d: Pull complete 
+7257ad6985e8: Pull complete 
+18f5c2055da2: Pull complete 
+85293a6fdd80: Pull complete 
+9e797eeb0c14: Pull complete 
+09b55b88e646: Pull complete 
+2cd18314711e: Pull complete 
+88b610931a5f: Pull complete 
+b90052b881e9: Pull complete 
+36317e1f49af: Pull complete 
+6dbef1d5801a: Pull complete 
+f98e14d31e08: Pull complete 
+dbc1b2b39588: Pull complete 
+280991283b71: Pull complete 
+5c4360fbc4f6: Pull complete 
+0623bccc9390: Pull complete 
+Digest: sha256:f331400d93624662b6fba461023b0f6a239fcd784d5a04333cead2a15c7cc160
+Status: Downloaded newer image for wordpress:latest
+kush@kush-Lenovo-Z580:~$ sudo docker images
+[sudo] password for kush: 
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nginx               latest              c5c4e8fa2cf7        26 hours ago        108.9 MB
+wordpress           latest              53046cdd8f97        12 days ago         407.9 MB
+ubuntu              16.04               f975c5035748        4 weeks ago         112.4 MB
+ubuntu              latest              f975c5035748        4 weeks ago         112.4 MB
+alpine              latest              3fd9065eaf02        12 weeks ago        4.148 MB
+kush07/repo1        v1                  3fd9065eaf02        12 weeks ago        4.148 MB
+hello-world         latest              f2a91732366c        4 months ago        1.848 kB
+kush@kush-Lenovo-Z580:~$ sudo docker run -d -it -v /var/lib/docker/volumes/dbvol:/var/lib/mysql 53046cdd8f97 /bin/bash
+51094ea968cf172cf2bd6b3b7f166d0b80c5267bbdcb042d512b3de652167b36
+kush@kush-Lenovo-Z580:~$ sudo docker exec -it ^C
+kush@kush-Lenovo-Z580:~$ ^C
+kush@kush-Lenovo-Z580:~$ sudo docker exec -it 51094ea968cf
+docker: "exec" requires a minimum of 2 arguments.
+See 'docker exec --help'.
+
+Usage:	docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+Run a command in a running container
+kush@kush-Lenovo-Z580:~$ sudo docker exec -it 51094ea968cf /bin/bash
+root@51094ea968cf:/var/www/html# cd /var/lib/
+
+root@68e555e90437:/var/lib# ls mysql/
+
+\_data
+
+root@68e555e90437:/var/lib#
+
+root@68e555e90437:/var/lib# cd mysql/
+
+root@68e555e90437:/var/lib/mysql# ll
+
+bash: ll: command not found
+
+root@68e555e90437:/var/lib/mysql# ls
+
+\_data
+
+root@68e555e90437:/var/lib/mysql#
+
+root@68e555e90437:/var/lib/mysql#
+
+root@68e555e90437:/var/lib/mysql# cd \_data/
+
+root@68e555e90437:/var/lib/mysql/\_data# ls
+
+root@68e555e90437:/var/lib/mysql/\_data#
+
+root@68e555e90437:/var/lib/mysql/\_data#
+
+root@68e555e90437:/var/lib/mysql/\_data# cd ..
+
+root@68e555e90437:/var/lib/mysql# ls
+
+\_data
+
+root@68e555e90437:/var/lib/mysql#
+
+root@68e555e90437:/var/lib/mysql#
+
+root@68e555e90437:/var/lib/mysql# cd \_data/
+
+root@68e555e90437:/var/lib/mysql/\_data# touch test
+
+root@68e555e90437:/var/lib/mysql/\_data#
+
+root@68e555e90437:/var/lib/mysql/\_data# touch test2
+
+root@68e555e90437:/var/lib/mysql/\_data#
+
+root@68e555e90437:/var/lib/mysql/\_data#
+
+root@68e555e90437:/var/lib/mysql/\_data# ls
+
+test  test2
+
+root@68e555e90437:/var/lib/mysql/\_data#
