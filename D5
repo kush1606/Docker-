@@ -1,0 +1,299 @@
+kush@kush-Lenovo-Z580:~$ sudo docker login
+[sudo] password for kush: 
+Username (kush07): kush07
+Password: 
+WARNING: login credentials saved in /home/kush/.docker/config.json
+Login Succeeded
+kush@kush-Lenovo-Z580:~$ sudo docker search centos
+NAME                               DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+centos                             The official build of CentOS.                   4168      [OK]       
+ansible/centos7-ansible            Ansible on Centos7                              105                  [OK]
+jdeathe/centos-ssh                 CentOS-6 6.9 x86_64 / CentOS-7 7.4.1708 x8...   93                   [OK]
+consol/centos-xfce-vnc             Centos container with "headless" VNC sessi...   52                   [OK]
+imagine10255/centos6-lnmp-php56    centos6-lnmp-php56                              40                   [OK]
+tutum/centos                       Simple CentOS docker image with SSH access      36                   
+gluster/gluster-centos             Official GlusterFS Image [ CentOS-7 +  Glu...   26                   [OK]
+centos/mysql-57-centos7            MySQL 5.7 SQL database server                   23                   
+centos/python-35-centos7           Platform for building and running Python 3...   19                   
+openshift/base-centos7             A Centos7 derived base image for Source-To...   17                   
+kinogmt/centos-ssh                 CentOS with SSH                                 17                   [OK]
+centos/postgresql-96-centos7       PostgreSQL is an advanced Object-Relationa...   12                   
+openshift/jenkins-2-centos7        A Centos7 based Jenkins v2.x image for use...   10                   
+openshift/mysql-55-centos7         DEPRECATED: A Centos7 based MySQL v5.5 ima...   6                    
+openshift/wildfly-101-centos7      A Centos7 based WildFly v10.1 image for us...   3                    
+openshift/jenkins-1-centos7        DEPRECATED: A Centos7 based Jenkins v1.x i...   3                    
+pivotaldata/centos-gpdb-dev        CentOS image for GPDB development. Tag nam...   3                    
+pivotaldata/centos                 Base centos, freshened up a little with a ...   1                    
+pivotaldata/centos-mingw           Using the mingw toolchain to cross-compile...   1                    
+blacklabelops/centos               CentOS Base Image! Built and Updates Daily!     1                    [OK]
+openshift/php-55-centos7           DEPRECATED: A Centos7 based PHP v5.5 image...   1                    
+openshift/wildfly-100-centos7      A Centos7 based WildFly v10.0 image for us...   1                    
+smartentry/centos                  centos with smartentry                          0                    [OK]
+pivotaldata/centos-gcc-toolchain   CentOS with a toolchain, but unaffiliated ...   0                    
+jameseckersall/sonarr-centos       Sonarr on CentOS 7                              0                    [OK]
+kush@kush-Lenovo-Z580:~$ sudo docker --star=3 centos
+flag provided but not defined: --star
+See 'docker --help'.
+kush@kush-Lenovo-Z580:~$ sudo docker search  --star=3 centos
+flag provided but not defined: --star
+See 'docker search --help'.
+kush@kush-Lenovo-Z580:~$ sudo docker search --filtter star=3 centos
+flag provided but not defined: --filtter
+See 'docker search --help'.
+kush@kush-Lenovo-Z580:~$ sudo docker search --filter star=3 centos
+flag provided but not defined: --filter
+See 'docker search --help'.
+kush@kush-Lenovo-Z580:~$ sudo docker search --filter stars=3 centos
+flag provided but not defined: --filter
+See 'docker search --help'.
+kush@kush-Lenovo-Z580:~$ sudo docker search --filter stars=3 centos
+flag provided but not defined: --filter
+See 'docker search --help'.
+kush@kush-Lenovo-Z580:~$ sudo docker --filter stars=3 search centos
+flag provided but not defined: --filter
+See 'docker --help'.
+kush@kush-Lenovo-Z580:~$ sudo docker -f stars=3 search centos
+flag provided but not defined: -f
+See 'docker --help'.
+kush@kush-Lenovo-Z580:~$ sudo docker --help
+Usage: docker [OPTIONS] COMMAND [arg...]
+       docker daemon [ --help | ... ]
+       docker [ --help | -v | --version ]
+
+A self-sufficient runtime for containers.
+
+Options:
+
+  --config=~/.docker              Location of client config files
+  -D, --debug                     Enable debug mode
+  -H, --host=[]                   Daemon socket(s) to connect to
+  -h, --help                      Print usage
+  -l, --log-level=info            Set the logging level
+  --tls                           Use TLS; implied by --tlsverify
+  --tlscacert=~/.docker/ca.pem    Trust certs signed only by this CA
+  --tlscert=~/.docker/cert.pem    Path to TLS certificate file
+  --tlskey=~/.docker/key.pem      Path to TLS key file
+  --tlsverify                     Use TLS and verify the remote
+  -v, --version                   Print version information and quit
+
+Commands:
+    attach    Attach to a running container
+    build     Build an image from a Dockerfile
+    commit    Create a new image from a container's changes
+    cp        Copy files/folders between a container and the local filesystem
+    create    Create a new container
+    diff      Inspect changes on a container's filesystem
+    events    Get real time events from the server
+    exec      Run a command in a running container
+    export    Export a container's filesystem as a tar archive
+    history   Show the history of an image
+    images    List images
+    import    Import the contents from a tarball to create a filesystem image
+    info      Display system-wide information
+    inspect   Return low-level information on a container or image
+    kill      Kill a running container
+    load      Load an image from a tar archive or STDIN
+    login     Register or log in to a Docker registry
+    logout    Log out from a Docker registry
+    logs      Fetch the logs of a container
+    network   Manage Docker networks
+    pause     Pause all processes within a container
+    port      List port mappings or a specific mapping for the CONTAINER
+    ps        List containers
+    pull      Pull an image or a repository from a registry
+    push      Push an image or a repository to a registry
+    rename    Rename a container
+    restart   Restart a container
+    rm        Remove one or more containers
+    rmi       Remove one or more images
+    run       Run a command in a new container
+    save      Save an image(s) to a tar archive
+    search    Search the Docker Hub for images
+    start     Start one or more stopped containers
+    stats     Display a live stream of container(s) resource usage statistics
+    stop      Stop a running container
+    tag       Tag an image into a repository
+    top       Display the running processes of a container
+    unpause   Unpause all processes within a container
+    update    Update resources of one or more containers
+    version   Show the Docker version information
+    volume    Manage Docker volumes
+    wait      Block until a container stops, then print its exit code
+
+Run 'docker COMMAND --help' for more information on a command.
+kush@kush-Lenovo-Z580:~$ 
+kush@kush-Lenovo-Z580:~$ 
+kush@kush-Lenovo-Z580:~$ sudo docker search --filter stars=3 centos
+flag provided but not defined: --filter
+See 'docker search --help'.
+kush@kush-Lenovo-Z580:~$ sudo docker search centos --filter stars=3
+docker: "search" requires 1 argument.
+See 'docker search --help'.
+
+Usage:	docker search [OPTIONS] TERM
+
+Search the Docker Hub for images
+kush@kush-Lenovo-Z580:~$ sudo docker search --help
+
+Usage:	docker search [OPTIONS] TERM
+
+Search the Docker Hub for images
+
+  --automated        Only show automated builds
+  --help             Print usage
+  --no-trunc         Don't truncate output
+  -s, --stars        Only displays with at least x stars
+kush@kush-Lenovo-Z580:~$ sudo docker search --filter --stars=3 centos
+flag provided but not defined: --filter
+See 'docker search --help'.
+kush@kush-Lenovo-Z580:~$ sudo docker search -f --stars=3 centos
+flag provided but not defined: -f
+See 'docker search --help'.
+kush@kush-Lenovo-Z580:~$ sudo docker -f --stars=3 centos
+flag provided but not defined: -f
+See 'docker --help'.
+kush@kush-Lenovo-Z580:~$ sudo docker search --stars=3 centos 
+NAME                              DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+centos                            The official build of CentOS.                   4168      [OK]       
+ansible/centos7-ansible           Ansible on Centos7                              105                  [OK]
+jdeathe/centos-ssh                CentOS-6 6.9 x86_64 / CentOS-7 7.4.1708 x8...   93                   [OK]
+consol/centos-xfce-vnc            Centos container with "headless" VNC sessi...   52                   [OK]
+imagine10255/centos6-lnmp-php56   centos6-lnmp-php56                              40                   [OK]
+tutum/centos                      Simple CentOS docker image with SSH access      36                   
+gluster/gluster-centos            Official GlusterFS Image [ CentOS-7 +  Glu...   26                   [OK]
+centos/mysql-57-centos7           MySQL 5.7 SQL database server                   23                   
+centos/python-35-centos7          Platform for building and running Python 3...   19                   
+openshift/base-centos7            A Centos7 derived base image for Source-To...   17                   
+kinogmt/centos-ssh                CentOS with SSH                                 17                   [OK]
+centos/postgresql-96-centos7      PostgreSQL is an advanced Object-Relationa...   12                   
+openshift/jenkins-2-centos7       A Centos7 based Jenkins v2.x image for use...   10                   
+openshift/mysql-55-centos7        DEPRECATED: A Centos7 based MySQL v5.5 ima...   6                    
+openshift/wildfly-101-centos7     A Centos7 based WildFly v10.1 image for us...   3                    
+openshift/jenkins-1-centos7       DEPRECATED: A Centos7 based Jenkins v1.x i...   3                    
+pivotaldata/centos-gpdb-dev       CentOS image for GPDB development. Tag nam...   3                    
+kush@kush-Lenovo-Z580:~$ 
+
+
+kush@kush-Lenovo-Z580:~$ sudo docker pull centos
+Using default tag: latest
+latest: Pulling from library/centos
+5e35d10a3eba: Pull complete 
+Digest: sha256:dcbc4e5e7052ea2306eed59563da1fec09196f2ecacbe042acbdcd2b44b05270
+Status: Downloaded newer image for centos:latest
+kush@kush-Lenovo-Z580:~$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello               ubuntu              0ff5e3b53a20        23 hours ago        438.8 MB
+<none>              <none>              3c52c3f7d3af        23 hours ago        152.6 MB
+nginx               latest              c5c4e8fa2cf7        2 days ago          108.9 MB
+wordpress           latest              53046cdd8f97        2 weeks ago         407.9 MB
+ubuntu              16.04               f975c5035748        4 weeks ago         112.4 MB
+ubuntu              latest              f975c5035748        4 weeks ago         112.4 MB
+centos              latest              2d194b392dd1        4 weeks ago         195.4 MB
+alpine              latest              3fd9065eaf02        12 weeks ago        4.148 MB
+kush07/repo1        v1                  3fd9065eaf02        12 weeks ago        4.148 MB
+hello-world         latest              f2a91732366c        4 months ago        1.848 kB
+kush@kush-Lenovo-Z580:~$ ^C
+
+kush@kush-Lenovo-Z580:~$ sudo docker run -d -it 2d194b392dd1 /bin/bash
+4317f0db5d3da11d9be71fe90a5ff2415ec05618b8d2cd0f6cc900c8fda16259
+kush@kush-Lenovo-Z580:~$ sudo docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                    PORTS               NAMES
+4317f0db5d3d        2d194b392dd1        "/bin/bash"              17 seconds ago      Up 15 seconds                                 suspicious_turing
+4d21b74d2e4c        3c52c3f7d3af        "/bin/sh -c 'apt-get "   23 hours ago        Exited (1) 23 hours ago                       pedantic_engelbart
+51094ea968cf        53046cdd8f97        "docker-entrypoint.sh"   34 hours ago        Exited (0) 34 hours ago                       agitated_mccarthy
+dec93e41ee4c        c5c4e8fa2cf7        "nginx -g 'daemon off"   35 hours ago        Exited (0) 34 hours ago                       conatinerexpose
+fc282c23958f        nginx               "nginx -g 'daemon off"   35 hours ago        Exited (0) 34 hours ago                       drunk_allen
+e85a9fceb89f        nginx               "nginx -g 'daemon off"   35 hours ago        Created                                       gigantic_yalow
+e99a04370734        nginx               "nginx -g 'daemon off"   47 hours ago        Exited (0) 47 hours ago                       docker-nginx1
+6a9f5c44a10f        nginx               "nginx -g 'daemon off"   47 hours ago        Created                                       docker-nginx
+ef34e882994f        hello-world         "/hello"                 2 days ago          Exited (0) 2 days ago                         hopeful_hopper
+a572f914328e        774c0d498e38        "/bin/sh -c 'apt-get "   2 days ago          Exited (1) 2 days ago                         tender_wescoff
+caef8aa6d7c9        alpine              "/bin/sh"                2 days ago          Exited (137) 2 days ago                       reverent_hypatia
+da5a91fbc41b        ubuntu              "/bin/bash"              4 days ago          Exited (0) 4 days ago                         kush
+19a44ae8db2f        ubuntu              "/bin/bash"              4 days ago          Exited (0) 4 days ago                         modest_bartik
+kush@kush-Lenovo-Z580:~$ sudo docker tag 2d194b392dd1 mycentos:version1.1
+kush@kush-Lenovo-Z580:~$ sudo docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                    PORTS               NAMES
+4317f0db5d3d        2d194b392dd1        "/bin/bash"              4 minutes ago       Up 4 minutes                                  suspicious_turing
+4d21b74d2e4c        3c52c3f7d3af        "/bin/sh -c 'apt-get "   23 hours ago        Exited (1) 23 hours ago                       pedantic_engelbart
+51094ea968cf        53046cdd8f97        "docker-entrypoint.sh"   35 hours ago        Exited (0) 34 hours ago                       agitated_mccarthy
+dec93e41ee4c        c5c4e8fa2cf7        "nginx -g 'daemon off"   35 hours ago        Exited (0) 34 hours ago                       conatinerexpose
+fc282c23958f        nginx               "nginx -g 'daemon off"   35 hours ago        Exited (0) 34 hours ago                       drunk_allen
+e85a9fceb89f        nginx               "nginx -g 'daemon off"   35 hours ago        Created                                       gigantic_yalow
+e99a04370734        nginx               "nginx -g 'daemon off"   47 hours ago        Exited (0) 47 hours ago                       docker-nginx1
+6a9f5c44a10f        nginx               "nginx -g 'daemon off"   47 hours ago        Created                                       docker-nginx
+ef34e882994f        hello-world         "/hello"                 2 days ago          Exited (0) 2 days ago                         hopeful_hopper
+a572f914328e        774c0d498e38        "/bin/sh -c 'apt-get "   2 days ago          Exited (1) 2 days ago                         tender_wescoff
+caef8aa6d7c9        alpine              "/bin/sh"                3 days ago          Exited (137) 2 days ago                       reverent_hypatia
+da5a91fbc41b        ubuntu              "/bin/bash"              4 days ago          Exited (0) 4 days ago                         kush
+19a44ae8db2f        ubuntu              "/bin/bash"              4 days ago          Exited (0) 4 days ago                         modest_bartik
+kush@kush-Lenovo-Z580:~$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello               ubuntu              0ff5e3b53a20        23 hours ago        438.8 MB
+<none>              <none>              3c52c3f7d3af        23 hours ago        152.6 MB
+nginx               latest              c5c4e8fa2cf7        2 days ago          108.9 MB
+wordpress           latest              53046cdd8f97        2 weeks ago         407.9 MB
+ubuntu              16.04               f975c5035748        4 weeks ago         112.4 MB
+ubuntu              latest              f975c5035748        4 weeks ago         112.4 MB
+centos              latest              2d194b392dd1        4 weeks ago         195.4 MB
+mycentos            version1.1          2d194b392dd1        4 weeks ago         195.4 MB
+alpine              latest              3fd9065eaf02        12 weeks ago        4.148 MB
+kush07/repo1        v1                  3fd9065eaf02        12 weeks ago        4.148 MB
+hello-world         latest              f2a91732366c        4 months ago        1.848 kB
+kush@kush-Lenovo-Z580:~$ 
+
+
+kush@kush-Lenovo-Z580:~$ sudo docker tag 2d194b392dd1 mycentos:version1.1
+kush@kush-Lenovo-Z580:~$ sudo docker push kush07/mytestrepo
+The push refers to a repository [docker.io/kush07/mytestrepo]
+Repository does not exist: kush07/mytestrepo
+kush@kush-Lenovo-Z580:~$ sudo docker push kush07/mytestrepo:version1.1
+The push refers to a repository [docker.io/kush07/mytestrepo]
+Repository does not exist: kush07/mytestrepo
+kush@kush-Lenovo-Z580:~$ sudo docker pull kush07/mytestrepo
+Using default tag: latest
+Pulling repository docker.io/kush07/mytestrepo
+Tag latest not found in repository docker.io/kush07/mytestrepo
+kush@kush-Lenovo-Z580:~$ sudo docker push kush07/mytestrepo:version1.1
+The push refers to a repository [docker.io/kush07/mytestrepo]
+Repository does not exist: kush07/mytestrepo
+kush@kush-Lenovo-Z580:~$ sudo docker commit kush07/mytestrepo
+Error response from daemon: No such container: kush07/mytestrepo
+kush@kush-Lenovo-Z580:~$ sudo docker push kush07/mytestrepo
+The push refers to a repository [docker.io/kush07/mytestrepo]
+Repository does not exist: kush07/mytestrepo
+kush@kush-Lenovo-Z580:~$ sudo docker push $kush07/mytestrepo
+Error parsing reference: "/mytestrepo" is not a valid repository/tag
+kush@kush-Lenovo-Z580:~$ sudo docker push $kush07/mytestrepo:version1.1
+Error parsing reference: "/mytestrepo:version1.1" is not a valid repository/tag
+kush@kush-Lenovo-Z580:~$ sudo docker push $kush07/mytestrepo
+Error parsing reference: "/mytestrepo" is not a valid repository/tag
+kush@kush-Lenovo-Z580:~$ sudo docker push $kush07/mytestrepo:mycentos
+Error parsing reference: "/mytestrepo:mycentos" is not a valid repository/tag
+kush@kush-Lenovo-Z580:~$ sudo docker tag 2d194b392dd1 kush07/mycentos:version1.1
+kush@kush-Lenovo-Z580:~$ sudo docker push $kush07/mytestrepo
+Error parsing reference: "/mytestrepo" is not a valid repository/tag
+kush@kush-Lenovo-Z580:~$ sudo docker push kush07/mytestrepo
+The push refers to a repository [docker.io/kush07/mytestrepo]
+Repository does not exist: kush07/mytestrepo
+kush@kush-Lenovo-Z580:~$ sudo docker push kush07/myvcentos:version1.1
+The push refers to a repository [docker.io/kush07/myvcentos]
+Repository does not exist: kush07/myvcentos
+kush@kush-Lenovo-Z580:~$ sudo docker push kush07/mycentos:version1.1
+The push refers to a repository [docker.io/kush07/mycentos]
+b03095563b79: Mounted from library/centos 
+version1.1: digest: sha256:d56d68b377fb22a6e3fa8c561763a71d43edebe1f3b0fff4a7ee7d55ef18b029 size: 2869
+kush@kush-Lenovo-Z580:~$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello               ubuntu              0ff5e3b53a20        23 hours ago        438.8 MB
+<none>              <none>              3c52c3f7d3af        24 hours ago        152.6 MB
+nginx               latest              c5c4e8fa2cf7        2 days ago          108.9 MB
+wordpress           latest              53046cdd8f97        2 weeks ago         407.9 MB
+ubuntu              16.04               f975c5035748        4 weeks ago         112.4 MB
+ubuntu              latest              f975c5035748        4 weeks ago         112.4 MB
+centos              latest              2d194b392dd1        4 weeks ago         195.4 MB
+kush07/mycentos     version1.1          2d194b392dd1        4 weeks ago         195.4 MB
+mycentos            version1.1          2d194b392dd1        4 weeks ago         195.4 MB
+alpine              latest              3fd9065eaf02        12 weeks ago        4.148 MB
+kush07/repo1        v1                  3fd9065eaf02        12 weeks ago        4.148 MB
+hello-world         latest              f2a91732366c        4 months ago        1.848 kB
