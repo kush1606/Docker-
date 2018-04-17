@@ -1,0 +1,106 @@
+kush@kush-Lenovo-Z580:~$ sudo docker-compose --version
+[sudo] password for kush: 
+docker-compose version 1.18.0, build 8dd22a9
+kush@kush-Lenovo-Z580:~$ sudo mkdir nginx
+kush@kush-Lenovo-Z580:~$ cd nginx
+kush@kush-Lenovo-Z580:~/nginx$ ll
+total 8
+drwxr-xr-x  2 root root 4096 Apr 16 12:06 ./
+drwxr-xr-x 54 kush kush 4096 Apr 16 12:06 ../
+kush@kush-Lenovo-Z580:~/nginx$ sudo vim docker-compose.yaml
+kush@kush-Lenovo-Z580:~/nginx$ ll
+total 8
+drwxr-xr-x  2 root root 4096 Apr 16 12:06 ./
+drwxr-xr-x 54 kush kush 4096 Apr 16 12:06 ../
+kush@kush-Lenovo-Z580:~/nginx$ sudo vim docker-compose.yaml
+kush@kush-Lenovo-Z580:~/nginx$ ll
+total 12
+drwxr-xr-x  2 root root 4096 Apr 16 12:07 ./
+drwxr-xr-x 54 kush kush 4096 Apr 16 12:07 ../
+-rw-r--r--  1 root root    2 Apr 16 12:07 docker-compose.yaml
+kush@kush-Lenovo-Z580:~/nginx$ sudo vim docker-compose.yaml
+kush@kush-Lenovo-Z580:~/nginx$ sudo vim docker-compose.yaml
+[sudo] password for kush: 
+kush@kush-Lenovo-Z580:~/nginx$ sudo docker-compose up
+ERROR: yaml.parser.ParserError: while parsing a block mapping
+  in "./docker-compose.yaml", line 1, column 1
+expected <block end>, but found '<block mapping start>'
+  in "./docker-compose.yaml", line 2, column 2
+kush@kush-Lenovo-Z580:~/nginx$ sudo vim docker-compose.yaml
+kush@kush-Lenovo-Z580:~/nginx$ sudo docker-compose up
+ERROR: yaml.parser.ParserError: while parsing a block mapping
+  in "./docker-compose.yaml", line 1, column 1
+expected <block end>, but found '<block mapping start>'
+  in "./docker-compose.yaml", line 2, column 2
+kush@kush-Lenovo-Z580:~/nginx$ sudo vim docker-compose.yaml
+kush@kush-Lenovo-Z580:~/nginx$ sudo docker-compose up
+ERROR: yaml.parser.ParserError: while parsing a block mapping
+  in "./docker-compose.yaml", line 1, column 1
+expected <block end>, but found '<block mapping start>'
+  in "./docker-compose.yaml", line 2, column 2
+kush@kush-Lenovo-Z580:~/nginx$ sudo docker-compose -f up
+Define and run multi-container applications with Docker.
+
+Usage:
+  docker-compose [-f <arg>...] [options] [COMMAND] [ARGS...]
+  docker-compose -h|--help
+
+Options:
+  -f, --file FILE             Specify an alternate compose file (default: docker-compose.yml)
+  -p, --project-name NAME     Specify an alternate project name (default: directory name)
+  --verbose                   Show more output
+  --no-ansi                   Do not print ANSI control characters
+  -v, --version               Print version and exit
+  -H, --host HOST             Daemon socket to connect to
+
+  --tls                       Use TLS; implied by --tlsverify
+  --tlscacert CA_PATH         Trust certs signed only by this CA
+  --tlscert CLIENT_CERT_PATH  Path to TLS certificate file
+  --tlskey TLS_KEY_PATH       Path to TLS key file
+  --tlsverify                 Use TLS and verify the remote
+  --skip-hostname-check       Don't check the daemon's hostname against the name specified
+                              in the client certificate (for example if your docker host
+                              is an IP address)
+  --project-directory PATH    Specify an alternate working directory
+                              (default: the path of the Compose file)
+
+Commands:
+  build              Build or rebuild services
+  bundle             Generate a Docker bundle from the Compose file
+  config             Validate and view the Compose file
+  create             Create services
+  down               Stop and remove containers, networks, images, and volumes
+  events             Receive real time events from containers
+  exec               Execute a command in a running container
+  help               Get help on a command
+  images             List images
+  kill               Kill containers
+  logs               View output from containers
+  pause              Pause services
+  port               Print the public port for a port binding
+  ps                 List containers
+  pull               Pull service images
+  push               Push service images
+  restart            Restart services
+  rm                 Remove stopped containers
+  run                Run a one-off command
+  scale              Set number of containers for a service
+  start              Start services
+  stop               Stop services
+  top                Display the running processes
+  unpause            Unpause services
+  up                 Create and start containers
+  version            Show the Docker-Compose version information
+kush@kush-Lenovo-Z580:~/nginx$ sudo vim docker-compose.yaml
+kush@kush-Lenovo-Z580:~/nginx$ sudo docker-compose up
+ERROR: yaml.scanner.ScannerError: mapping values are not allowed here
+  in "./docker-compose.yaml", line 2, column 10
+kush@kush-Lenovo-Z580:~/nginx$ sudo vim docker-compose.yaml
+kush@kush-Lenovo-Z580:~/nginx$ sudo docker-compose up
+ERROR: yaml.scanner.ScannerError: mapping values are not allowed here
+  in "./docker-compose.yaml", line 2, column 10
+kush@kush-Lenovo-Z580:~/nginx$ sudo vim docker-compose.yaml
+kush@kush-Lenovo-Z580:~/nginx$ sudo docker-compose up
+ERROR: yaml.scanner.ScannerError: mapping values are not allowed here
+  in "./docker-compose.yaml", line 2, column 9
+kush@kush-Lenovo-Z580:~/nginx$ 
