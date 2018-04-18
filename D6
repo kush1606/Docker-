@@ -1,0 +1,77 @@
+Install docker-compose on your machine, if not already installed. :-
+[kush@kush-Lenovo-Z580  ~]# docker-compose --version
+docker-compose version 1.21.0, build 5920eb0
+[kush@kush-Lenovo-Z580 ]#
+Check docker-compose version. :-
+[kush@kush-Lenovo-Z580  ~]# docker-compose --version
+docker-compose version 1.21.0, build 5920eb0
+Create a directory named nginx in your root. :-
+[kush@kush-Lenovo-Z580  ~]# mkdir nginx
+Switch to that directory and create a file named docker-compose.yaml :-
+[kush@kush-Lenovo-Z580 ~]#
+[kush@kush-Lenovo-Z580  ~]# cd nginx
+[kush@kush-Lenovo-Z580  nginx]# touch docker-compose.yaml
+Use docker-compose version 2 to create docker-compose.yaml file. :-
+Create a service named "databases".
+Use image named "mysql"
+Map container 3306 port to host machine 3306 port.
+Add environment variables named "MYSQL_ROOT_PASSWORD", "MYSQL_DATABASE", "MYSQL_USER" and "MYSQL_PASSWORD" along with corresponding values for all.
+Add another service named "web"
+Use image "nginx"
+Save docker-compose.yaml file and do docker-compose up.
+[kush@kush-Lenovo-Z580  nginx]# docker-compose up -d
+WARNING: The Docker Engine you're using is running in swarm mode.
+Compose does not use swarm mode to deploy services to multiple nodes in a swarm. All containers will be scheduled on the current node.
+To deploy your application across the swarm, use docker stack deploy.
+Creating test-nginx ... done
+Creating test-mysql ... done
+[kush@kush-Lenovo-Z580  nginx]#
+[kush@kush-Lenovo-Z580  nginx]# cat docker-compose.yaml
+version: '2'
+services:
+databases:
+image: mysql:latest
+
+container\_name: test-mysql
+
+ports:
+
+  - &quot;6033:3306&quot;
+
+environment:
+
+  MYSQL\_ROOT\_PASSWORD: &quot;password&quot;
+
+  MYSQL\_DATABASE: &quot;testdb&quot;
+
+  MYSQL\_USER: &quot;test&quot;
+
+  MYSQL\_PASSWORD: &quot;test&quot;
+nginx:
+image: nginx
+
+container\_name: test-nginx
+
+ports:
+
+  - &quot;8086:80&quot;
+[kush@kush-Lenovo-Z580 nginx]#
+Verify nginx service is up and is accessible on machine. :-
+Yes its up and running fine.
+Stop and remove your docker container using docker-compose. :-
+[kush@kush-Lenovo-Z580 nginx]# docker-compose rm nginx
+No stopped containers
+[kush@kush-Lenovo-Z580 nginx]# docker-compose stop nginx
+Stopping test-nginx ... done
+[kush@kush-Lenovo-Z580nginx]# docker-compose stop databases
+Stopping test-mysql ... done
+[kush@kush-Lenovo-Z580nginx]# docker-compose rm nginx
+Going to remove test-nginx
+Are you sure? [yN] y
+Removing test-nginx ... done
+[kush@kush-Lenovo-Z580 nginx]# docker-compose rm databases
+Going to remove test-mysql
+Are you sure? [yN] y
+Removing test-mysql ... done
+kush@kush-Lenovo-Z580
+
